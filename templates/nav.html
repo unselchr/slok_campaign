@@ -1,24 +1,32 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">Navbar</a>
+  <a class="navbar-brand" href="#">SLOK Campaign Manager</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 	<span class="navbar-toggler-icon"></span>
   </button>
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
 	<ul class="navbar-nav mr-auto">
-	  <li class="nav-item active">
 		{% if user.is_authenticated %}
-		  <a class="nav-link" href="/logout">Logout</a>
+      <li class="nav-item active">
+        <a class="nav-link" href="/logout">Logout</a>
+      </li>
 		{% else %}
-		  <a class="nav-link" href="/login">Login</a>
+      <li class="nav-item active">
+        <a class="nav-link" href="/login">Login</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="/signup">Signup</a>
+      </li>
 		{% endif %}
-	  </li>
 	  <li class="nav-item">
 		<a class="nav-link" href={% url 'game-list' %}>Games</a>
 	  </li>
 	  <li class="nav-item">
 		<a class="nav-link" href={% url 'roster-list' %}>Rosters</a>
 	  </li>
+    <li>
+      <small><small><small><small><small><small><small><small>yeet</small></small></small></small></small></small></small></small>
+    </li>
 	</ul>
   </div>
 </nav>
