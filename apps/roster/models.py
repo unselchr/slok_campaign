@@ -53,6 +53,9 @@ class KillTeam(models.Model):
 
     roster = models.OneToOneField("roster.roster", verbose_name=_("Roster"), on_delete=models.CASCADE, related_name="KillTeam")
 
+    def model_cost(self):
+        return self.Models.objects.aggregate(Sum('cost'))
+
     def __str__(self):
         return str(self.roster)
 
@@ -91,6 +94,9 @@ class Roster(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, verbose_name=_("User"), on_delete=models.CASCADE, )
 
     game = models.ForeignKey("game.game", verbose_name=_("Game"), on_delete=models.CASCADE, related_name='Game')
+
+    def unit_cost(self):
+        return self.Units.objects.aggregate(Sum('cost'))
 
 
     class Meta:
