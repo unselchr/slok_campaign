@@ -25,7 +25,7 @@ SECRET_KEY = 'pq%rh@gxm^r(^m1b##z4+!_u$xkc1$p*&-i!^@)hq=j1&w^)^u'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['slok-campaign.herokuapp.com']
 
 
 # Application definition
