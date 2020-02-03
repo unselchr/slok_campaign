@@ -18,9 +18,9 @@ class Unit(models.Model):
     description = models.CharField(_("Description"), max_length=50, blank=True)
 
     roster = models.ForeignKey("roster.roster", verbose_name=_("Roster"), on_delete=models.CASCADE, related_name='Units')
-    
+
     warlord = models.BooleanField(_("Warlord"))
-    
+
     dead = models.BooleanField(_("dead"))
 
     cost = models.SmallIntegerField(_("Cost"))
@@ -37,7 +37,7 @@ class Unit(models.Model):
             except Unit.DoesNotExist:
                 pass
         super(Unit, self).save(*args, **kwargs)
-                    
+
 
     class Meta:
         unique_together = (
@@ -74,7 +74,7 @@ class KillTeamModel(models.Model):
     specialism = models.CharField(_("Specialism"), max_length=50, blank=True)
 
     demeanor = models.CharField(_("Demeanor"), max_length=50, blank=True)
-    
+
     dead = models.BooleanField(_("dead"))
 
     cost = models.SmallIntegerField(_("Cost"))

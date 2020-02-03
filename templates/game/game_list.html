@@ -1,0 +1,23 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+  <div class="row">
+    <div class="col-12">
+      <div class="card-group">
+        {% for game in object_list.all %}
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">{{ game.name }}</h5>
+              <p class="card-text">Players:</p>
+              <ul class="list-group list-group-flush">
+                {% for player in game.users.all %}
+                  <li class="list-group-item">{{ player.username }}</li>
+                {% endfor %}
+              </ul>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    <div class="col-12">
+  </div>
+{% endblock %}

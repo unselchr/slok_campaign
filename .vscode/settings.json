@@ -1,3 +1,4 @@
 {
-    "python.pythonPath": "/home/unselchr/Code/venv/slok/bin/python"
+	"python.pythonPath": "/home/unselchr/Code/venv/slok/bin/python",
+	"python.linting.enabled": true
 }
