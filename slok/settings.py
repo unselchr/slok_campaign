@@ -40,6 +40,8 @@ ALLOWED_HOSTS = ['slok-campaign.herokuapp.com']
 INSTALLED_APPS = [
     'apps.game',
     'apps.roster',
+    'apps.player',
+    'apps.map',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

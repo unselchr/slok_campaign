@@ -1,5 +1,5 @@
-from django.conf import settings
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
+from django.shortcuts import redirect
 from django.views import generic
 
 from apps.game.models import Game
@@ -14,5 +14,17 @@ class GameListView(LoginRequiredMixin, generic.ListView):
 
     def get_queryset(self):
         games = Game.objects.filter(users=self.request.user)
-        print(games)
         return games
+
+
+class GameDetailView(LoginRequiredMixin, generic.DetailView):
+
+    model = Game
+    template_name = 'game/game_detail.html'
+
+    def get(self, request, *args, **kwargs):
+        self.object = self.get_object()
+        if self.object.users.filter(pk=request.user.pk).exists():
+            return super().get(request, *args, **kwargs)
+        else:
+            return redirect('home')

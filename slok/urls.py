@@ -1,4 +1,4 @@
-"""slok URL Configuration
+'''slok URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/3.0/topics/http/urls/
@@ -12,7 +12,7 @@ Class-based views
 Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
-"""
+'''
 from django.conf import settings
 from django.conf.urls import include
 from django.contrib import admin
@@ -25,9 +25,9 @@ from slok import views as core_views
 urlpatterns = [
     path('', TemplateView.as_view(template_name='home.html'), name='home'),
     path('admin/', admin.site.urls),
-    path('game/', include('apps.game.urls')),
-    path('roster/', include('apps.roster.urls')),
-    path('player/', include('apps.player.urls')),
+    path('game/', include('apps.game.urls'), name='game'),
+    path('roster/', include('apps.roster.urls'), name='roster'),
+    path('player/', include('apps.player.urls'), name='player'),
     path('login/', auth_views.LoginView.as_view(), name='login'),
     path('logout/', auth_views.LogoutView.as_view(), {'next_page': '/'}, name='logout'),
     path('signup/', core_views.signup, name='signup'),
