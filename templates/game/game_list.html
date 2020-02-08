@@ -10,8 +10,8 @@
               <h5 class="card-title"><a href={% url 'game:game_detail' pk=game.pk %}>{{ game.name }}</a></h5>
               <p class="card-text">Players:</p>
               <ul class="list-group list-group-flush">
-                {% for player in game.users.all %}
-                  <li class="list-group-item">{{ player.username }}</li>
+                {% for player in game.players.all %}
+                  <li class="list-group-item">{{ player.user.username }}</li>
                 {% endfor %}
               </ul>
             </div>
