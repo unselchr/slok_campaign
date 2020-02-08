@@ -13,7 +13,7 @@ class GameListView(LoginRequiredMixin, generic.ListView):
     template_name = 'game/game_list.html'
 
     def get_queryset(self):
-        games = Game.objects.filter(users=self.request.user)
+        games = Game.objects.filter(players__user=self.request.user)
         return games
 
 
@@ -24,7 +24,7 @@ class GameDetailView(LoginRequiredMixin, generic.DetailView):
 
     def get(self, request, *args, **kwargs):
         self.object = self.get_object()
-        if self.object.users.filter(pk=request.user.pk).exists():
+        if request.user.players.filter(game=self.object):
             return super().get(request, *args, **kwargs)
         else:
             return redirect('home')
