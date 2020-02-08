@@ -9,6 +9,8 @@ class Player(models.Model):
 
     user = models.ForeignKey(settings.AUTH_USER_MODEL, verbose_name=_('User'), related_name='players', on_delete=models.CASCADE)
 
+    faction = models.CharField(_('Faction'), max_length=20)
+
     resource_points = models.SmallIntegerField(_('Resource Points'))
 
     victory_points = models.SmallIntegerField(_('Victory Points'))

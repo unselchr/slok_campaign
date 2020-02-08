@@ -4,42 +4,54 @@
   <div class="row">
     <div class="col-12">
       <h1 class="text-center">Dashboard</h1>
+    </div>
+    <div class="col-12 col-lg-6">
       <div class="card">
+        <div class="card-header">LeaderBoard</div>
         <div class="card-body">
-          <h5 class="card-title">LeaderBoard</h5>
+          {% include "game/partials/leaderboard.html" %}
+        </div>
+      </div>
+    </div>
+    <div class="col-12 col-lg-6">
+      <div class="card">
+        <div class="card-header">Map</div>
+        <div class="card-body">
+          {% include "game/partials/map_overview.html" %}
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div>
+      <div class="card">
+        <div class="card-header">Revenue Phase</div>
+        <div class="card-body">
 
         </div>
       </div>
-      <div class="card-group">
-        <div class="card">
-          <div class="card-body">
-            <h5 class="card-title">Revenue Phase</h5>
+      <div class="card">
+        <div class="card-header">Event Phase</div>
+        <div class="card-body">
 
-          </div>
         </div>
-        <div class="card">
-          <div class="card-body">
-            <h5 class="card-title">Event Phase</h5>
+      </div>
+      <div class="card">
+        <div class="card-header">Challenge Phase</div>
+        <div class="card-body">
 
-          </div>
         </div>
-        <div class="card">
-          <div class="card-body">
-            <h5 class="card-title">Challenge Phase</h5>
+      </div>
+      <div class="card">
+        <div class="card-header">Subterfuge Phase</div>
+        <div class="card-body">
 
-          </div>
         </div>
-        <div class="card">
-          <div class="card-body">
-            <h5 class="card-title">Subterfuge Phase</h5>
+      </div>
+      <div class="card">
+        <div class="card-header">Spoils Phase</div>
+        <div class="card-body">
 
-          </div>
-        </div>
-        <div class="card">
-          <div class="card-body">
-            <h5 class="card-title">Spoils Phase</h5>
-
-          </div>
         </div>
       </div>
     </div>

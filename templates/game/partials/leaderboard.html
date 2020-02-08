@@ -1,0 +1,26 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Player</th>
+      <th scope="col">Faction</th>
+      <th scope="col">Warlord</th>
+      <th scope="col">Resource Points</th>
+      <th scope="col">Victory Points</th>
+      <th scope="col">Territories</th>
+      <th scope="col">Relics</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for player in object.players.all %}
+      <tr>
+        <th scope="row">{{ player }}</th>
+        <td>{{ player.faction }}</td>
+        <td>{{ player.roster.get_warlord }}</td>
+        <td>{{ player.resource_points}}</td>
+        <td>{{ player.victory_points}}</td>
+        <td>{{ player.territories.count}}</td>
+        <td>{{ player.relics.count}}</td>
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>

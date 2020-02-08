@@ -15,4 +15,6 @@ class PlanetAdmin(admin.ModelAdmin):
 
 @admin.register(Relic)
 class RelicAdmin(admin.ModelAdmin):
-    pass
+    autocomplete_fields=[
+        'holder'
+    ]

@@ -18,7 +18,7 @@ class Unit(models.Model):
 
     description = models.CharField(_('Description'), max_length=50, blank=True)
 
-    roster = models.ForeignKey('roster.roster', verbose_name=_('Roster'), on_delete=models.CASCADE, related_name='Units')
+    roster = models.ForeignKey('roster.roster', verbose_name=_('Roster'), on_delete=models.CASCADE, related_name='units')
 
     warlord = models.BooleanField(_('Warlord'))
 
@@ -55,7 +55,7 @@ class Unit(models.Model):
 
 class KillTeam(models.Model):
 
-    roster = models.OneToOneField('roster.roster', verbose_name=_('Roster'), on_delete=models.CASCADE, related_name='KillTeam')
+    roster = models.OneToOneField('roster.roster', verbose_name=_('Roster'), on_delete=models.CASCADE, related_name='killTeam')
 
     def model_cost(self):
         return self.Models.objects.aggregate(Sum('cost'))
@@ -65,7 +65,7 @@ class KillTeam(models.Model):
 
 class KillTeamModel(models.Model):
 
-    killteam = models.ForeignKey('roster.killteam', verbose_name=_('Kill Team Model'), on_delete=models.CASCADE, related_name='KillTeamModels')
+    killteam = models.ForeignKey('roster.killteam', verbose_name=_('Kill Team Model'), on_delete=models.CASCADE, related_name='killTeamModels')
 
     name = models.CharField(_('Name'), max_length=30)
 
@@ -95,18 +95,13 @@ class KillTeamModel(models.Model):
 
 class Roster(models.Model):
 
-    player = models.ForeignKey('player.Player', verbose_name=_('Player'), on_delete=models.CASCADE, )
+    player = models.OneToOneField('player.Player', verbose_name=_('Player'), on_delete=models.CASCADE, )
 
-    game = models.ForeignKey('game.game', verbose_name=_('Game'), on_delete=models.CASCADE, related_name='Game')
+    def get_warlord(self):
+        return self.units.get(warlord=True)
 
     def unit_cost(self):
-        return self.Units.objects.aggregate(Sum('cost'))
-
-
-    class Meta:
-        unique_together = (
-            ('player', 'game')
-        )
+        return self.units.aggregate(Sum('cost'))
 
     def __str__(self):
-        return '%s %s' % (self.user, self.game)
+        return '%s %s' % (self.player, self.player.game)
