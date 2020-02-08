@@ -20,5 +20,5 @@ class UnitInline(admin.TabularInline):
 @admin.register(Roster)
 class RosterAdmin(admin.ModelAdmin):
     inlines = [
-        UnitInline
+        UnitInline,
     ]

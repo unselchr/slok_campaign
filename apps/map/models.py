@@ -33,6 +33,11 @@ class Relic(models.Model):
                 raise ValidationError(_('If there is a holder there must be a player'))
 
 
+    class Meta:
+        unique_together = (
+            ('game', 'name'),
+        )
+
     def __str__(self):
         return self.name
 
@@ -42,6 +47,12 @@ class Planet(models.Model):
     game = models.ForeignKey("game.Game", verbose_name=_("Game"), related_name='planets', on_delete=models.CASCADE)
 
     name = models.CharField(_('Name'), max_length=30)
+
+
+    class Meta:
+        unique_together = (
+            ('game', 'name')
+        )
 
     def __str__(self):
         return self.name
