@@ -5,53 +5,61 @@
     <div class="col-12">
       <h1 class="text-center">Dashboard</h1>
     </div>
-    <div class="col-12 col-lg-6">
+    <div class="col-12 col-xl-6">
       <div class="card">
         <div class="card-header">LeaderBoard</div>
-        <div class="card-body">
+        <div class="card-body px-0" style="overflow-x: scroll;">
           {% include "game/partials/leaderboard.html" %}
         </div>
       </div>
     </div>
-    <div class="col-12 col-lg-6">
+    <div class="col-12 col-xl-6">
       <div class="card">
         <div class="card-header">Map</div>
         <div class="card-body">
-          {% include "game/partials/map_overview.html" %}
+          {% include "game/partials/map.html" %}
         </div>
       </div>
     </div>
   </div>
   <div class="row">
-    <div>
+    <div class="col-12 col-md-6 col-lg-4">
       <div class="card">
         <div class="card-header">Revenue Phase</div>
         <div class="card-body">
-
+          {% include "game/partials/revenue.html" %}
         </div>
       </div>
+    </div>
+    <div class="col-12 col-md-6 col-lg-4">
       <div class="card">
         <div class="card-header">Event Phase</div>
         <div class="card-body">
-
+          {% include "game/partials/event.html" %}
         </div>
       </div>
+    </div>
+    <div class="col-12 col-md-6 col-lg-4">
       <div class="card">
         <div class="card-header">Challenge Phase</div>
         <div class="card-body">
-
+          {% include "game/partials/challenge.html" %}
         </div>
       </div>
+    </div>
+    <div class="col-12 col-md-6 col-lg-4">
       <div class="card">
         <div class="card-header">Subterfuge Phase</div>
         <div class="card-body">
-
+          {% include "game/partials/subterfuge.html" %}
         </div>
       </div>
+    </div>
+    <div class="col-12 col-md-6 col-lg-4">
       <div class="card">
         <div class="card-header">Spoils Phase</div>
         <div class="card-body">
-
+          {% include "game/partials/spoils.html" %}
         </div>
       </div>
     </div>

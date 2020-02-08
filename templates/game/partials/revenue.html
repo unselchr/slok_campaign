@@ -1,0 +1,20 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Player</th>
+      <th scope="col">Industry</th>
+      <th scope="col">Modifier</th>
+      <th scope="col">Total</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for player in object.players.all %}
+      <tr>
+        <th scope="row">{{ player.user.username }}</th>
+        <td>{{ player.industry_total }}</td>
+        <td>{{ player.resource_dice_modifier }}</td>
+        <td>{{ player.resource_total }}</td>
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>

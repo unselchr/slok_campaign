@@ -1,6 +1,9 @@
 from django.conf import settings
 from django.db import models
+from django.db.models import Q
 from django.utils.translation import gettext as _
+
+import apps.map.models as map_models
 
 
 class Player(models.Model):
@@ -17,6 +20,14 @@ class Player(models.Model):
 
     resource_dice_modifier = models.SmallIntegerField(_('Resource Dice Modifier'))
 
+    def industry_total(self):
+        return map_models.Territory.objects.filter(Q(planet__game=self.game), Q(player=self)).count()
+
+    def resource_total(self):
+        providence = 2
+        modifier = self.resource_dice_modifier
+        industry = self.industry_total()
+        return providence + modifier + industry
 
     class Meta:
         unique_together = (
