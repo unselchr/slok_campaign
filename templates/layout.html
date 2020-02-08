@@ -18,12 +18,11 @@
 				{% include "nav.html" %}
 			{% endblock %}
 
-			{% block content %}
-		<main>
-		  <div class="container-fluid">
-		  </div>
-		</main>
-			{% endblock %}
+      <main>
+        <div class="container-fluid">
+          {% block content %}{% endblock %}
+        </div>
+      </main>
 
 		{% endblock %}
 	</body>
