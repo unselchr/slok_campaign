@@ -65,6 +65,8 @@ class Territory(models.Model):
 
     name = models.CharField(_('name'), max_length=30)
 
+    description = models.CharField(_("Description"), max_length=75, blank=True, null=True)
+
     planet = models.ForeignKey('map.Planet', verbose_name=_('Planet'), related_name='territories', on_delete=models.CASCADE)
 
     INDUSTRY, FORTIFICATION, CRITICAL_LOCATION = 'industry', 'fortification', 'critical_location'

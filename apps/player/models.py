@@ -16,12 +16,24 @@ class Player(models.Model):
 
     resource_points = models.SmallIntegerField(_('Resource Points'))
 
-    victory_points = models.SmallIntegerField(_('Victory Points'))
+    def victory_points(self):
+        provinces = map_models.Territory.objects.filter(Q(planet__game=self.game), Q(player=self)).count()
+        critical_locations = map_models.Territory.objects.filter(
+            Q(planet__game=self.game),
+            Q(player=self),
+            Q(feature=map_models.Territory.CRITICAL_LOCATION)
+        ).count()
+        relics = map_models.Relic.objects.filter(player=self).count()
+        return provinces + critical_locations + relics
 
     resource_dice_modifier = models.SmallIntegerField(_('Resource Dice Modifier'))
 
     def industry_total(self):
-        return map_models.Territory.objects.filter(Q(planet__game=self.game), Q(player=self)).count()
+        return map_models.Territory.objects.filter(
+            Q(planet__game=self.game),
+            Q(player=self),
+            Q(feature=map_models.Territory.INDUSTRY)
+        ).count()
 
     def resource_total(self):
         providence = 2
