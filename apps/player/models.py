@@ -9,9 +9,8 @@ import apps.map.models as map_models
 
 class Player(models.Model):
 
-    game = models.ForeignKey('game.Game', verbose_name=_('Game'), related_name='players', on_delete=models.CASCADE)
-
     user = models.ForeignKey(settings.AUTH_USER_MODEL, verbose_name=_('User'), related_name='players', on_delete=models.CASCADE)
+    game = models.ForeignKey('game.Game', verbose_name=_('Game'), related_name=_('players'), on_delete=models.CASCADE)
 
     faction = models.CharField(_('Faction'), max_length=20)
 

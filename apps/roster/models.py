@@ -84,7 +84,7 @@ class KillTeamModel(models.Model):
     cost = models.SmallIntegerField(_('Cost'))
 
 
-    class meta:
+    class Meta:
         unique_together = (
             ('killteam', 'specialism')
         )
@@ -104,4 +104,4 @@ class Roster(models.Model):
         return self.units.aggregate(Sum('cost'))
 
     def __str__(self):
-        return '%s %s' % (self.player, self.player.game)
+        return '%s %s' % (self.player.user, self.game)

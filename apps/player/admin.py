@@ -3,5 +3,5 @@ from apps.player.models import Player
 
 
 @admin.register(Player)
-class PlayerAdmin(admin.ModelAdmin):
+class PlayerModelAdmin(admin.ModelAdmin):
     pass
