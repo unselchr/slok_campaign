@@ -1,0 +1,18 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Player</th>
+      <th scope="col">Campaign Points</th>
+      <th scope="col">Spent On</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for player in object.players.all %}
+      <tr>
+        <th scope="row">{{ player }}</th>
+        <td>{{ player.campaign_points }}</td>
+        <td></td>
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>

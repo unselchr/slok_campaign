@@ -1,0 +1,18 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Challenger</th>
+      <th scope="col">VS</th>
+      <th scope="col">Mission</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for player in object.players.all %}
+      <tr>
+        <th scope="row">{{ player }}</th>
+        <td>{{ player.subterfuge_target }}</td>
+        <td>{{ player.subterfuge_mission }}</td>
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>

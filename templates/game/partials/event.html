@@ -1,0 +1,18 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Player</th>
+      <th scope="col">Event</th>
+      <th scope="col">Target</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for player in object.players.all %}
+      <tr>
+        <th scope="row">{{ player }}</th>
+        <td>{{ player.event }}</td>
+        <td>{{ player.event_target }}</td>
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>

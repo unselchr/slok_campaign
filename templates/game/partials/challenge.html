@@ -1,0 +1,16 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Challenger</th>
+      <th scope="col">VS</th>
+      <th scope="col">At</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for battle in object.current_battles.all %}
+      <th scope="row">{{ battle.participants.first }}</th>
+      <td>{{ battle.participants.last }}</td>
+      <td>{{ battle.location }}</td>
+    {% endfor %}
+  </tbody>
+</table>

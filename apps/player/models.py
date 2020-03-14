@@ -34,7 +34,7 @@ class Player(models.Model):
 
     EVENT_REQUIRE_TARGET = (RAID_SUPPLY_LINES, WARP_STORM, RECONNAISSANCE)
 
-    event = models.CharField(_('Event'), max_length=15, choices=EVENT_CHOICES, unique=True, blank=True, null=True)
+    event = models.CharField(_('Event'), max_length=15, choices=EVENT_CHOICES, blank=True, null=True)
 
     event_target = models.ForeignKey('player.Player', verbose_name=_('Event Target'), related_name='event_targeter', on_delete=models.CASCADE, blank=True, null=True)
 
@@ -118,7 +118,8 @@ class Player(models.Model):
     class Meta:
         unique_together = (
             ('game', 'user'),
-            ('event', 'event_target'),
+            ('event', 'event_target', 'game'),
+            ('event', 'game'),
             ('subterfuge_mission', 'subterfuge_target'),
             ('reconnaissance_subterfuge_mission', 'reconnaissance_subterfuge_target'),
             ('subterfuge_mission','reconnaissance_subterfuge_mission', 'subterfuge_target'),
